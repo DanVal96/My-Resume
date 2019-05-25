@@ -1,26 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:layout_marginTop="@dimen/margin_xsmall"
-              android:layout_marginBottom="@dimen/margin_xsmall"
-              android:orientation="horizontal">
+<android.support.v7.widget.LinearLayoutCompat
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/colorPrimary">
 
-<ImageView
-        android:id="@+id/iv_skill_icon"
-        android:layout_width="10dp"
-        android:layout_height="10dp"
-        android:layout_margin="@dimen/margin_small"
-        android:layout_gravity="center_vertical"
-        tools:src="@mipmap/ic_launcher" />
-
-    <TextView
-            android:id="@+id/tv_skill"
+    <android.support.v7.widget.LinearLayoutCompat
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:textColor="@android:color/white" />
+            android:layout_height="wrap_content">
 
+        <ImageView
+                android:id="@+id/iv_skill_icon"
+                android:layout_width="@dimen/margin_xl"
+                android:layout_height="@dimen/margin_xl"
+                android:layout_margin="@dimen/margin_small"
+                android:layout_gravity="center_vertical"
+                tools:src="@mipmap/ic_launcher"
+                android:contentDescription="@string/app_name"/>
 
-</LinearLayout>
+        <TextView
+                android:id="@+id/tv_profile_main_skill"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                tools:text="Android Developer SSr Adv"
+                android:textAlignment="center"/>
+
+    </android.support.v7.widget.LinearLayoutCompat>
+
+    <android.support.v7.widget.RecyclerView
+            android:id="@+id/skills_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/margin_xsmall"
+            android:nestedScrollingEnabled="false"/>
+</android.support.v7.widget.LinearLayoutCompat>

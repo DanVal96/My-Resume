@@ -102,15 +102,6 @@
                             android:orientation="vertical"
                             android:background="@color/colorPrimary">
 
-                        <TextView
-                                android:id="@+id/tv_profile_main_skill"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:textColor="@android:color/white"
-                                tools:text="Android Developer SSr Adv"
-                                android:layout_marginStart="@dimen/margin_xsmall"
-                                android:textAlignment="center"/>
-
                         <android.support.v7.widget.RecyclerView
                                 android:id="@+id/skills_list"
                                 android:layout_width="match_parent"
