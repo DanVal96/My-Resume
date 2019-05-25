@@ -27,20 +27,20 @@ class DefaultRealmModuleMediator extends RealmProxyMediator {
     private static final Set<Class<? extends RealmModel>> MODEL_CLASSES;
     static {
         Set<Class<? extends RealmModel>> modelClasses = new HashSet<Class<? extends RealmModel>>(4);
-        modelClasses.add(com.example.data.models.cache.RealmPastJob.class);
-        modelClasses.add(com.example.data.models.cache.RealmResume.class);
-        modelClasses.add(com.example.data.models.cache.RealmBasics.class);
         modelClasses.add(com.example.data.models.cache.RealmAbilities.class);
+        modelClasses.add(com.example.data.models.cache.RealmBasics.class);
+        modelClasses.add(com.example.data.models.cache.RealmResume.class);
+        modelClasses.add(com.example.data.models.cache.RealmPastJob.class);
         MODEL_CLASSES = Collections.unmodifiableSet(modelClasses);
     }
 
     @Override
     public Map<Class<? extends RealmModel>, OsObjectSchemaInfo> getExpectedObjectSchemaInfoMap() {
         Map<Class<? extends RealmModel>, OsObjectSchemaInfo> infoMap = new HashMap<Class<? extends RealmModel>, OsObjectSchemaInfo>(4);
-        infoMap.put(com.example.data.models.cache.RealmPastJob.class, io.realm.RealmPastJobRealmProxy.getExpectedObjectSchemaInfo());
-        infoMap.put(com.example.data.models.cache.RealmResume.class, io.realm.RealmResumeRealmProxy.getExpectedObjectSchemaInfo());
-        infoMap.put(com.example.data.models.cache.RealmBasics.class, io.realm.RealmBasicsRealmProxy.getExpectedObjectSchemaInfo());
         infoMap.put(com.example.data.models.cache.RealmAbilities.class, io.realm.RealmAbilitiesRealmProxy.getExpectedObjectSchemaInfo());
+        infoMap.put(com.example.data.models.cache.RealmBasics.class, io.realm.RealmBasicsRealmProxy.getExpectedObjectSchemaInfo());
+        infoMap.put(com.example.data.models.cache.RealmResume.class, io.realm.RealmResumeRealmProxy.getExpectedObjectSchemaInfo());
+        infoMap.put(com.example.data.models.cache.RealmPastJob.class, io.realm.RealmPastJobRealmProxy.getExpectedObjectSchemaInfo());
         return infoMap;
     }
 
@@ -48,17 +48,17 @@ class DefaultRealmModuleMediator extends RealmProxyMediator {
     public ColumnInfo createColumnInfo(Class<? extends RealmModel> clazz, OsSchemaInfo schemaInfo) {
         checkClass(clazz);
 
-        if (clazz.equals(com.example.data.models.cache.RealmPastJob.class)) {
-            return io.realm.RealmPastJobRealmProxy.createColumnInfo(schemaInfo);
-        }
-        if (clazz.equals(com.example.data.models.cache.RealmResume.class)) {
-            return io.realm.RealmResumeRealmProxy.createColumnInfo(schemaInfo);
+        if (clazz.equals(com.example.data.models.cache.RealmAbilities.class)) {
+            return io.realm.RealmAbilitiesRealmProxy.createColumnInfo(schemaInfo);
         }
         if (clazz.equals(com.example.data.models.cache.RealmBasics.class)) {
             return io.realm.RealmBasicsRealmProxy.createColumnInfo(schemaInfo);
         }
-        if (clazz.equals(com.example.data.models.cache.RealmAbilities.class)) {
-            return io.realm.RealmAbilitiesRealmProxy.createColumnInfo(schemaInfo);
+        if (clazz.equals(com.example.data.models.cache.RealmResume.class)) {
+            return io.realm.RealmResumeRealmProxy.createColumnInfo(schemaInfo);
+        }
+        if (clazz.equals(com.example.data.models.cache.RealmPastJob.class)) {
+            return io.realm.RealmPastJobRealmProxy.createColumnInfo(schemaInfo);
         }
         throw getMissingProxyClassException(clazz);
     }
@@ -67,17 +67,17 @@ class DefaultRealmModuleMediator extends RealmProxyMediator {
     public List<String> getFieldNames(Class<? extends RealmModel> clazz) {
         checkClass(clazz);
 
-        if (clazz.equals(com.example.data.models.cache.RealmPastJob.class)) {
-            return io.realm.RealmPastJobRealmProxy.getFieldNames();
-        }
-        if (clazz.equals(com.example.data.models.cache.RealmResume.class)) {
-            return io.realm.RealmResumeRealmProxy.getFieldNames();
+        if (clazz.equals(com.example.data.models.cache.RealmAbilities.class)) {
+            return io.realm.RealmAbilitiesRealmProxy.getFieldNames();
         }
         if (clazz.equals(com.example.data.models.cache.RealmBasics.class)) {
             return io.realm.RealmBasicsRealmProxy.getFieldNames();
         }
-        if (clazz.equals(com.example.data.models.cache.RealmAbilities.class)) {
-            return io.realm.RealmAbilitiesRealmProxy.getFieldNames();
+        if (clazz.equals(com.example.data.models.cache.RealmResume.class)) {
+            return io.realm.RealmResumeRealmProxy.getFieldNames();
+        }
+        if (clazz.equals(com.example.data.models.cache.RealmPastJob.class)) {
+            return io.realm.RealmPastJobRealmProxy.getFieldNames();
         }
         throw getMissingProxyClassException(clazz);
     }
@@ -86,17 +86,17 @@ class DefaultRealmModuleMediator extends RealmProxyMediator {
     public String getSimpleClassNameImpl(Class<? extends RealmModel> clazz) {
         checkClass(clazz);
 
-        if (clazz.equals(com.example.data.models.cache.RealmPastJob.class)) {
-            return io.realm.RealmPastJobRealmProxy.getSimpleClassName();
-        }
-        if (clazz.equals(com.example.data.models.cache.RealmResume.class)) {
-            return io.realm.RealmResumeRealmProxy.getSimpleClassName();
+        if (clazz.equals(com.example.data.models.cache.RealmAbilities.class)) {
+            return io.realm.RealmAbilitiesRealmProxy.getSimpleClassName();
         }
         if (clazz.equals(com.example.data.models.cache.RealmBasics.class)) {
             return io.realm.RealmBasicsRealmProxy.getSimpleClassName();
         }
-        if (clazz.equals(com.example.data.models.cache.RealmAbilities.class)) {
-            return io.realm.RealmAbilitiesRealmProxy.getSimpleClassName();
+        if (clazz.equals(com.example.data.models.cache.RealmResume.class)) {
+            return io.realm.RealmResumeRealmProxy.getSimpleClassName();
+        }
+        if (clazz.equals(com.example.data.models.cache.RealmPastJob.class)) {
+            return io.realm.RealmPastJobRealmProxy.getSimpleClassName();
         }
         throw getMissingProxyClassException(clazz);
     }
@@ -108,17 +108,17 @@ class DefaultRealmModuleMediator extends RealmProxyMediator {
             objectContext.set((BaseRealm) baseRealm, row, columnInfo, acceptDefaultValue, excludeFields);
             checkClass(clazz);
 
-            if (clazz.equals(com.example.data.models.cache.RealmPastJob.class)) {
-                return clazz.cast(new io.realm.RealmPastJobRealmProxy());
-            }
-            if (clazz.equals(com.example.data.models.cache.RealmResume.class)) {
-                return clazz.cast(new io.realm.RealmResumeRealmProxy());
+            if (clazz.equals(com.example.data.models.cache.RealmAbilities.class)) {
+                return clazz.cast(new io.realm.RealmAbilitiesRealmProxy());
             }
             if (clazz.equals(com.example.data.models.cache.RealmBasics.class)) {
                 return clazz.cast(new io.realm.RealmBasicsRealmProxy());
             }
-            if (clazz.equals(com.example.data.models.cache.RealmAbilities.class)) {
-                return clazz.cast(new io.realm.RealmAbilitiesRealmProxy());
+            if (clazz.equals(com.example.data.models.cache.RealmResume.class)) {
+                return clazz.cast(new io.realm.RealmResumeRealmProxy());
+            }
+            if (clazz.equals(com.example.data.models.cache.RealmPastJob.class)) {
+                return clazz.cast(new io.realm.RealmPastJobRealmProxy());
             }
             throw getMissingProxyClassException(clazz);
         } finally {
@@ -137,17 +137,17 @@ class DefaultRealmModuleMediator extends RealmProxyMediator {
         // generated by RealmProxy or the original type extending directly from RealmObject
         @SuppressWarnings("unchecked") Class<E> clazz = (Class<E>) ((obj instanceof RealmObjectProxy) ? obj.getClass().getSuperclass() : obj.getClass());
 
-        if (clazz.equals(com.example.data.models.cache.RealmPastJob.class)) {
-            return clazz.cast(io.realm.RealmPastJobRealmProxy.copyOrUpdate(realm, (com.example.data.models.cache.RealmPastJob) obj, update, cache));
-        }
-        if (clazz.equals(com.example.data.models.cache.RealmResume.class)) {
-            return clazz.cast(io.realm.RealmResumeRealmProxy.copyOrUpdate(realm, (com.example.data.models.cache.RealmResume) obj, update, cache));
+        if (clazz.equals(com.example.data.models.cache.RealmAbilities.class)) {
+            return clazz.cast(io.realm.RealmAbilitiesRealmProxy.copyOrUpdate(realm, (com.example.data.models.cache.RealmAbilities) obj, update, cache));
         }
         if (clazz.equals(com.example.data.models.cache.RealmBasics.class)) {
             return clazz.cast(io.realm.RealmBasicsRealmProxy.copyOrUpdate(realm, (com.example.data.models.cache.RealmBasics) obj, update, cache));
         }
-        if (clazz.equals(com.example.data.models.cache.RealmAbilities.class)) {
-            return clazz.cast(io.realm.RealmAbilitiesRealmProxy.copyOrUpdate(realm, (com.example.data.models.cache.RealmAbilities) obj, update, cache));
+        if (clazz.equals(com.example.data.models.cache.RealmResume.class)) {
+            return clazz.cast(io.realm.RealmResumeRealmProxy.copyOrUpdate(realm, (com.example.data.models.cache.RealmResume) obj, update, cache));
+        }
+        if (clazz.equals(com.example.data.models.cache.RealmPastJob.class)) {
+            return clazz.cast(io.realm.RealmPastJobRealmProxy.copyOrUpdate(realm, (com.example.data.models.cache.RealmPastJob) obj, update, cache));
         }
         throw getMissingProxyClassException(clazz);
     }
@@ -158,14 +158,14 @@ class DefaultRealmModuleMediator extends RealmProxyMediator {
         // generated by RealmProxy or the original type extending directly from RealmObject
         @SuppressWarnings("unchecked") Class<RealmModel> clazz = (Class<RealmModel>) ((object instanceof RealmObjectProxy) ? object.getClass().getSuperclass() : object.getClass());
 
-        if (clazz.equals(com.example.data.models.cache.RealmPastJob.class)) {
-            io.realm.RealmPastJobRealmProxy.insert(realm, (com.example.data.models.cache.RealmPastJob) object, cache);
-        } else if (clazz.equals(com.example.data.models.cache.RealmResume.class)) {
-            io.realm.RealmResumeRealmProxy.insert(realm, (com.example.data.models.cache.RealmResume) object, cache);
+        if (clazz.equals(com.example.data.models.cache.RealmAbilities.class)) {
+            io.realm.RealmAbilitiesRealmProxy.insert(realm, (com.example.data.models.cache.RealmAbilities) object, cache);
         } else if (clazz.equals(com.example.data.models.cache.RealmBasics.class)) {
             io.realm.RealmBasicsRealmProxy.insert(realm, (com.example.data.models.cache.RealmBasics) object, cache);
-        } else if (clazz.equals(com.example.data.models.cache.RealmAbilities.class)) {
-            io.realm.RealmAbilitiesRealmProxy.insert(realm, (com.example.data.models.cache.RealmAbilities) object, cache);
+        } else if (clazz.equals(com.example.data.models.cache.RealmResume.class)) {
+            io.realm.RealmResumeRealmProxy.insert(realm, (com.example.data.models.cache.RealmResume) object, cache);
+        } else if (clazz.equals(com.example.data.models.cache.RealmPastJob.class)) {
+            io.realm.RealmPastJobRealmProxy.insert(realm, (com.example.data.models.cache.RealmPastJob) object, cache);
         } else {
             throw getMissingProxyClassException(clazz);
         }
@@ -183,26 +183,26 @@ class DefaultRealmModuleMediator extends RealmProxyMediator {
             // generated by RealmProxy or the original type extending directly from RealmObject
             @SuppressWarnings("unchecked") Class<RealmModel> clazz = (Class<RealmModel>) ((object instanceof RealmObjectProxy) ? object.getClass().getSuperclass() : object.getClass());
 
-            if (clazz.equals(com.example.data.models.cache.RealmPastJob.class)) {
-                io.realm.RealmPastJobRealmProxy.insert(realm, (com.example.data.models.cache.RealmPastJob) object, cache);
-            } else if (clazz.equals(com.example.data.models.cache.RealmResume.class)) {
-                io.realm.RealmResumeRealmProxy.insert(realm, (com.example.data.models.cache.RealmResume) object, cache);
+            if (clazz.equals(com.example.data.models.cache.RealmAbilities.class)) {
+                io.realm.RealmAbilitiesRealmProxy.insert(realm, (com.example.data.models.cache.RealmAbilities) object, cache);
             } else if (clazz.equals(com.example.data.models.cache.RealmBasics.class)) {
                 io.realm.RealmBasicsRealmProxy.insert(realm, (com.example.data.models.cache.RealmBasics) object, cache);
-            } else if (clazz.equals(com.example.data.models.cache.RealmAbilities.class)) {
-                io.realm.RealmAbilitiesRealmProxy.insert(realm, (com.example.data.models.cache.RealmAbilities) object, cache);
+            } else if (clazz.equals(com.example.data.models.cache.RealmResume.class)) {
+                io.realm.RealmResumeRealmProxy.insert(realm, (com.example.data.models.cache.RealmResume) object, cache);
+            } else if (clazz.equals(com.example.data.models.cache.RealmPastJob.class)) {
+                io.realm.RealmPastJobRealmProxy.insert(realm, (com.example.data.models.cache.RealmPastJob) object, cache);
             } else {
                 throw getMissingProxyClassException(clazz);
             }
             if (iterator.hasNext()) {
-                if (clazz.equals(com.example.data.models.cache.RealmPastJob.class)) {
-                    io.realm.RealmPastJobRealmProxy.insert(realm, iterator, cache);
-                } else if (clazz.equals(com.example.data.models.cache.RealmResume.class)) {
-                    io.realm.RealmResumeRealmProxy.insert(realm, iterator, cache);
+                if (clazz.equals(com.example.data.models.cache.RealmAbilities.class)) {
+                    io.realm.RealmAbilitiesRealmProxy.insert(realm, iterator, cache);
                 } else if (clazz.equals(com.example.data.models.cache.RealmBasics.class)) {
                     io.realm.RealmBasicsRealmProxy.insert(realm, iterator, cache);
-                } else if (clazz.equals(com.example.data.models.cache.RealmAbilities.class)) {
-                    io.realm.RealmAbilitiesRealmProxy.insert(realm, iterator, cache);
+                } else if (clazz.equals(com.example.data.models.cache.RealmResume.class)) {
+                    io.realm.RealmResumeRealmProxy.insert(realm, iterator, cache);
+                } else if (clazz.equals(com.example.data.models.cache.RealmPastJob.class)) {
+                    io.realm.RealmPastJobRealmProxy.insert(realm, iterator, cache);
                 } else {
                     throw getMissingProxyClassException(clazz);
                 }
@@ -216,14 +216,14 @@ class DefaultRealmModuleMediator extends RealmProxyMediator {
         // generated by RealmProxy or the original type extending directly from RealmObject
         @SuppressWarnings("unchecked") Class<RealmModel> clazz = (Class<RealmModel>) ((obj instanceof RealmObjectProxy) ? obj.getClass().getSuperclass() : obj.getClass());
 
-        if (clazz.equals(com.example.data.models.cache.RealmPastJob.class)) {
-            io.realm.RealmPastJobRealmProxy.insertOrUpdate(realm, (com.example.data.models.cache.RealmPastJob) obj, cache);
-        } else if (clazz.equals(com.example.data.models.cache.RealmResume.class)) {
-            io.realm.RealmResumeRealmProxy.insertOrUpdate(realm, (com.example.data.models.cache.RealmResume) obj, cache);
+        if (clazz.equals(com.example.data.models.cache.RealmAbilities.class)) {
+            io.realm.RealmAbilitiesRealmProxy.insertOrUpdate(realm, (com.example.data.models.cache.RealmAbilities) obj, cache);
         } else if (clazz.equals(com.example.data.models.cache.RealmBasics.class)) {
             io.realm.RealmBasicsRealmProxy.insertOrUpdate(realm, (com.example.data.models.cache.RealmBasics) obj, cache);
-        } else if (clazz.equals(com.example.data.models.cache.RealmAbilities.class)) {
-            io.realm.RealmAbilitiesRealmProxy.insertOrUpdate(realm, (com.example.data.models.cache.RealmAbilities) obj, cache);
+        } else if (clazz.equals(com.example.data.models.cache.RealmResume.class)) {
+            io.realm.RealmResumeRealmProxy.insertOrUpdate(realm, (com.example.data.models.cache.RealmResume) obj, cache);
+        } else if (clazz.equals(com.example.data.models.cache.RealmPastJob.class)) {
+            io.realm.RealmPastJobRealmProxy.insertOrUpdate(realm, (com.example.data.models.cache.RealmPastJob) obj, cache);
         } else {
             throw getMissingProxyClassException(clazz);
         }
@@ -241,26 +241,26 @@ class DefaultRealmModuleMediator extends RealmProxyMediator {
             // generated by RealmProxy or the original type extending directly from RealmObject
             @SuppressWarnings("unchecked") Class<RealmModel> clazz = (Class<RealmModel>) ((object instanceof RealmObjectProxy) ? object.getClass().getSuperclass() : object.getClass());
 
-            if (clazz.equals(com.example.data.models.cache.RealmPastJob.class)) {
-                io.realm.RealmPastJobRealmProxy.insertOrUpdate(realm, (com.example.data.models.cache.RealmPastJob) object, cache);
-            } else if (clazz.equals(com.example.data.models.cache.RealmResume.class)) {
-                io.realm.RealmResumeRealmProxy.insertOrUpdate(realm, (com.example.data.models.cache.RealmResume) object, cache);
+            if (clazz.equals(com.example.data.models.cache.RealmAbilities.class)) {
+                io.realm.RealmAbilitiesRealmProxy.insertOrUpdate(realm, (com.example.data.models.cache.RealmAbilities) object, cache);
             } else if (clazz.equals(com.example.data.models.cache.RealmBasics.class)) {
                 io.realm.RealmBasicsRealmProxy.insertOrUpdate(realm, (com.example.data.models.cache.RealmBasics) object, cache);
-            } else if (clazz.equals(com.example.data.models.cache.RealmAbilities.class)) {
-                io.realm.RealmAbilitiesRealmProxy.insertOrUpdate(realm, (com.example.data.models.cache.RealmAbilities) object, cache);
+            } else if (clazz.equals(com.example.data.models.cache.RealmResume.class)) {
+                io.realm.RealmResumeRealmProxy.insertOrUpdate(realm, (com.example.data.models.cache.RealmResume) object, cache);
+            } else if (clazz.equals(com.example.data.models.cache.RealmPastJob.class)) {
+                io.realm.RealmPastJobRealmProxy.insertOrUpdate(realm, (com.example.data.models.cache.RealmPastJob) object, cache);
             } else {
                 throw getMissingProxyClassException(clazz);
             }
             if (iterator.hasNext()) {
-                if (clazz.equals(com.example.data.models.cache.RealmPastJob.class)) {
-                    io.realm.RealmPastJobRealmProxy.insertOrUpdate(realm, iterator, cache);
-                } else if (clazz.equals(com.example.data.models.cache.RealmResume.class)) {
-                    io.realm.RealmResumeRealmProxy.insertOrUpdate(realm, iterator, cache);
+                if (clazz.equals(com.example.data.models.cache.RealmAbilities.class)) {
+                    io.realm.RealmAbilitiesRealmProxy.insertOrUpdate(realm, iterator, cache);
                 } else if (clazz.equals(com.example.data.models.cache.RealmBasics.class)) {
                     io.realm.RealmBasicsRealmProxy.insertOrUpdate(realm, iterator, cache);
-                } else if (clazz.equals(com.example.data.models.cache.RealmAbilities.class)) {
-                    io.realm.RealmAbilitiesRealmProxy.insertOrUpdate(realm, iterator, cache);
+                } else if (clazz.equals(com.example.data.models.cache.RealmResume.class)) {
+                    io.realm.RealmResumeRealmProxy.insertOrUpdate(realm, iterator, cache);
+                } else if (clazz.equals(com.example.data.models.cache.RealmPastJob.class)) {
+                    io.realm.RealmPastJobRealmProxy.insertOrUpdate(realm, iterator, cache);
                 } else {
                     throw getMissingProxyClassException(clazz);
                 }
@@ -273,17 +273,17 @@ class DefaultRealmModuleMediator extends RealmProxyMediator {
         throws JSONException {
         checkClass(clazz);
 
-        if (clazz.equals(com.example.data.models.cache.RealmPastJob.class)) {
-            return clazz.cast(io.realm.RealmPastJobRealmProxy.createOrUpdateUsingJsonObject(realm, json, update));
-        }
-        if (clazz.equals(com.example.data.models.cache.RealmResume.class)) {
-            return clazz.cast(io.realm.RealmResumeRealmProxy.createOrUpdateUsingJsonObject(realm, json, update));
+        if (clazz.equals(com.example.data.models.cache.RealmAbilities.class)) {
+            return clazz.cast(io.realm.RealmAbilitiesRealmProxy.createOrUpdateUsingJsonObject(realm, json, update));
         }
         if (clazz.equals(com.example.data.models.cache.RealmBasics.class)) {
             return clazz.cast(io.realm.RealmBasicsRealmProxy.createOrUpdateUsingJsonObject(realm, json, update));
         }
-        if (clazz.equals(com.example.data.models.cache.RealmAbilities.class)) {
-            return clazz.cast(io.realm.RealmAbilitiesRealmProxy.createOrUpdateUsingJsonObject(realm, json, update));
+        if (clazz.equals(com.example.data.models.cache.RealmResume.class)) {
+            return clazz.cast(io.realm.RealmResumeRealmProxy.createOrUpdateUsingJsonObject(realm, json, update));
+        }
+        if (clazz.equals(com.example.data.models.cache.RealmPastJob.class)) {
+            return clazz.cast(io.realm.RealmPastJobRealmProxy.createOrUpdateUsingJsonObject(realm, json, update));
         }
         throw getMissingProxyClassException(clazz);
     }
@@ -293,17 +293,17 @@ class DefaultRealmModuleMediator extends RealmProxyMediator {
         throws IOException {
         checkClass(clazz);
 
-        if (clazz.equals(com.example.data.models.cache.RealmPastJob.class)) {
-            return clazz.cast(io.realm.RealmPastJobRealmProxy.createUsingJsonStream(realm, reader));
-        }
-        if (clazz.equals(com.example.data.models.cache.RealmResume.class)) {
-            return clazz.cast(io.realm.RealmResumeRealmProxy.createUsingJsonStream(realm, reader));
+        if (clazz.equals(com.example.data.models.cache.RealmAbilities.class)) {
+            return clazz.cast(io.realm.RealmAbilitiesRealmProxy.createUsingJsonStream(realm, reader));
         }
         if (clazz.equals(com.example.data.models.cache.RealmBasics.class)) {
             return clazz.cast(io.realm.RealmBasicsRealmProxy.createUsingJsonStream(realm, reader));
         }
-        if (clazz.equals(com.example.data.models.cache.RealmAbilities.class)) {
-            return clazz.cast(io.realm.RealmAbilitiesRealmProxy.createUsingJsonStream(realm, reader));
+        if (clazz.equals(com.example.data.models.cache.RealmResume.class)) {
+            return clazz.cast(io.realm.RealmResumeRealmProxy.createUsingJsonStream(realm, reader));
+        }
+        if (clazz.equals(com.example.data.models.cache.RealmPastJob.class)) {
+            return clazz.cast(io.realm.RealmPastJobRealmProxy.createUsingJsonStream(realm, reader));
         }
         throw getMissingProxyClassException(clazz);
     }
@@ -314,17 +314,17 @@ class DefaultRealmModuleMediator extends RealmProxyMediator {
         // generated by RealmProxy or the original type extending directly from RealmObject
         @SuppressWarnings("unchecked") Class<E> clazz = (Class<E>) realmObject.getClass().getSuperclass();
 
-        if (clazz.equals(com.example.data.models.cache.RealmPastJob.class)) {
-            return clazz.cast(io.realm.RealmPastJobRealmProxy.createDetachedCopy((com.example.data.models.cache.RealmPastJob) realmObject, 0, maxDepth, cache));
-        }
-        if (clazz.equals(com.example.data.models.cache.RealmResume.class)) {
-            return clazz.cast(io.realm.RealmResumeRealmProxy.createDetachedCopy((com.example.data.models.cache.RealmResume) realmObject, 0, maxDepth, cache));
+        if (clazz.equals(com.example.data.models.cache.RealmAbilities.class)) {
+            return clazz.cast(io.realm.RealmAbilitiesRealmProxy.createDetachedCopy((com.example.data.models.cache.RealmAbilities) realmObject, 0, maxDepth, cache));
         }
         if (clazz.equals(com.example.data.models.cache.RealmBasics.class)) {
             return clazz.cast(io.realm.RealmBasicsRealmProxy.createDetachedCopy((com.example.data.models.cache.RealmBasics) realmObject, 0, maxDepth, cache));
         }
-        if (clazz.equals(com.example.data.models.cache.RealmAbilities.class)) {
-            return clazz.cast(io.realm.RealmAbilitiesRealmProxy.createDetachedCopy((com.example.data.models.cache.RealmAbilities) realmObject, 0, maxDepth, cache));
+        if (clazz.equals(com.example.data.models.cache.RealmResume.class)) {
+            return clazz.cast(io.realm.RealmResumeRealmProxy.createDetachedCopy((com.example.data.models.cache.RealmResume) realmObject, 0, maxDepth, cache));
+        }
+        if (clazz.equals(com.example.data.models.cache.RealmPastJob.class)) {
+            return clazz.cast(io.realm.RealmPastJobRealmProxy.createDetachedCopy((com.example.data.models.cache.RealmPastJob) realmObject, 0, maxDepth, cache));
         }
         throw getMissingProxyClassException(clazz);
     }

@@ -13,14 +13,6 @@ public final class ApiModule {
     @org.jetbrains.annotations.NotNull()
     @javax.inject.Singleton()
     @dagger.Provides()
-    public final com.example.data.services.ResumeApiServices providesResumeApiService(@org.jetbrains.annotations.NotNull()
-    retrofit2.Retrofit retrofit) {
-        return null;
-    }
-    
-    @org.jetbrains.annotations.NotNull()
-    @javax.inject.Singleton()
-    @dagger.Provides()
     public final retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory providesRxJava2CallAdapterFactory() {
         return null;
     }
@@ -35,8 +27,8 @@ public final class ApiModule {
     @org.jetbrains.annotations.NotNull()
     @javax.inject.Singleton()
     @dagger.Provides()
-    public final retrofit2.converter.gson.GsonConverterFactory providesGsonConverterFactory(@org.jetbrains.annotations.NotNull()
-    com.google.gson.Gson gson) {
+    public final com.example.data.services.ResumeApiServices providesResumeApiService(@org.jetbrains.annotations.NotNull()
+    retrofit2.Retrofit retrofit) {
         return null;
     }
     
@@ -54,6 +46,14 @@ public final class ApiModule {
     com.google.gson.Gson gson, @org.jetbrains.annotations.NotNull()
     okhttp3.OkHttpClient okHttpClient, @org.jetbrains.annotations.NotNull()
     retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory rx2AdapterFactory) {
+        return null;
+    }
+    
+    @org.jetbrains.annotations.NotNull()
+    @javax.inject.Singleton()
+    @dagger.Provides()
+    public final retrofit2.converter.gson.GsonConverterFactory providesGsonConverterFactory(@org.jetbrains.annotations.NotNull()
+    com.google.gson.Gson gson) {
         return null;
     }
     
