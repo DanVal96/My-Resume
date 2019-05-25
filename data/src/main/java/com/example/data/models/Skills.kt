@@ -8,5 +8,7 @@ data class Skills (
 	@SerializedName("level")
 	val level : String?,
 	@SerializedName("keywords")
-	val keywords : List<String>?
+	val keywords : List<String>?,
+	@SerializedName("urlImage")
+	val urlImage : String?
 )
