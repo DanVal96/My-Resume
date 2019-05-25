@@ -14,6 +14,7 @@ import com.example.myresume.services.ImageDownloader
 class AdapterPastJobs(private var worksList: ArrayList<PastJobData>?,
                       private val resourceManager: StringsResolver)
     : RecyclerView.Adapter<AdapterPastJobs.PreviousWorkViewHolder>() {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PreviousWorkViewHolder {
         return PreviousWorkViewHolder(LayoutInflater.from(parent.context)
             .inflate(R.layout.item_past_job, parent, false))
