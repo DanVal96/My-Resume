@@ -37,7 +37,6 @@ class MainActivity : AppCompatActivity(), CommonView, MainActivityContract.View 
     private var profileName: TextView? = null
     private var profileImage: ImageView? = null
     private var profileDescription: TextView? = null
-    private var placeholderContainer: View? = null
     private var adapterResumeSkills: AdapterResumeSkills? = null
     private var adapterPastJobs: AdapterPastJobs? = null
     private val imageDownloader = PicassImageDownloader()
@@ -85,7 +84,6 @@ class MainActivity : AppCompatActivity(), CommonView, MainActivityContract.View 
 
     override fun renderBasicInformation(basicInformation: BasicsData) {
         infoContainer?.visibility = VISIBLE
-        placeholderContainer?.visibility = GONE
         profileName?.text = basicInformation.name
         profileDescription?.text = basicInformation.summary
         profileImage?.let { imageDownloader.loadImage(it, basicInformation.picture) }

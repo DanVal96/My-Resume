@@ -1,12 +1,12 @@
 package com.example.myresume
 
-import com.example.myresume.view.MainActivity
+import com.example.myresume.di.AppComponent
 import dagger.Component
 import javax.inject.Singleton
 
 
 @Singleton
 @Component(modules = [MockAppModule::class, MockThreadModule::class])
-interface MockAppComponent {
-    fun inject(mainActivity: MainActivity)
+interface MockAppComponent: AppComponent {
+    fun inject(mainActivity: MainActivityTests)
 }

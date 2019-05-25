@@ -13,7 +13,7 @@ class MockStringsResolver: StringsResolver {
     }
 
     override fun getSkillsHeader(): String {
-        return EMPTY_STRING
+        return SKILLS_HEADER
     }
 
     override fun getWorkPeriodFormat(startDate: String?, endDate: String?): String {
@@ -22,5 +22,6 @@ class MockStringsResolver: StringsResolver {
 
     companion object {
         const val EMPTY_STRING = ""
+        const val SKILLS_HEADER = "The SKILLS"
     }
 }
