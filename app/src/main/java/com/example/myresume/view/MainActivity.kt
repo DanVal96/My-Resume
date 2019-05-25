@@ -5,7 +5,7 @@ import android.support.constraint.ConstraintLayout
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.DividerItemDecoration
-import android.support.v7.widget.GridLayoutManager
+import android.support.v7.widget.LinearLayoutCompat
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
@@ -20,8 +20,8 @@ import com.example.myresume.ResumeApplication
 import com.example.myresume.adapters.AdapterPastJobs
 import com.example.myresume.adapters.AdapterResumeAbilities
 import com.example.myresume.domain.interactors.GetResumeInteractor
-import com.example.myresume.domain.models.BasicsData
 import com.example.myresume.domain.models.AbilitiesData
+import com.example.myresume.domain.models.BasicsData
 import com.example.myresume.domain.models.PastJobData
 import com.example.myresume.domain.resolver.StringsResolver
 import com.example.myresume.presenter.MainActivityContract
@@ -34,16 +34,13 @@ class MainActivity : AppCompatActivity(), CommonView, MainActivityContract.View 
     private var skillsRecyclerView: RecyclerView? = null
     private var previousWorksRecyclerView: RecyclerView? = null
     private var progressBar: LottieAnimationView? = null
-    private var infoContainer: ConstraintLayout? = null
+    private var infoContainer: LinearLayoutCompat? = null
     private var profileName: TextView? = null
     private var profileImage: ImageView? = null
     private var profileDescription: TextView? = null
-    private var skillsTitle: TextView? = null
     private var placeholderContainer: View? = null
-
     private var adapterResumeAbilities: AdapterResumeAbilities? = null
     private var adapterPastJobs: AdapterPastJobs? = null
-
     private val imageDownloader = PicassImageDownloader()
 
     @Inject
@@ -62,7 +59,7 @@ class MainActivity : AppCompatActivity(), CommonView, MainActivityContract.View 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.new_format_cv)
+        setContentView(R.layout.activity_main)
         (application as ResumeApplication).getAppComponent().inject(this)
         resumePresenter.initView()
     }
@@ -85,8 +82,6 @@ class MainActivity : AppCompatActivity(), CommonView, MainActivityContract.View 
         profileImage = this.findViewById(R.id.iv_profile_image)
         profileDescription = this.findViewById(R.id.tv_profile_description)
         infoContainer = this.findViewById(R.id.info_container)
-        skillsTitle = this.findViewById(R.id.tv_profile_main_skill)
-//        placeholderContainer = this.findViewById(R.id.container_placeholder)
     }
 
     override fun renderBasicInformation(basicInformation: BasicsData) {
@@ -97,9 +92,9 @@ class MainActivity : AppCompatActivity(), CommonView, MainActivityContract.View 
         profileImage?.let { imageDownloader.loadImage(it, basicInformation.picture) }
     }
 
+
     override fun renderSkillsInformation(abilitiesInformation: List<AbilitiesData>) {
         val receivedSkill = abilitiesInformation[0]
-        skillsTitle?.text = receivedSkill.name
         if (adapterResumeAbilities == null) {
             adapterResumeAbilities = AdapterResumeAbilities(receivedSkill.keywords?.toMutableList())
             skillsRecyclerView?.apply {
@@ -123,11 +118,6 @@ class MainActivity : AppCompatActivity(), CommonView, MainActivityContract.View 
             adapterPastJobs?.loadData(ArrayList(pastJobInformation))
         }
     }
-
-//    override fun showResumePlaceHolder() {
-//        infoContainer?.visibility = GONE
-//        placeholderContainer?.visibility = VISIBLE
-//    }
 
     override fun showError(errorMessage: String) {
         Snackbar.make(profileName as View, errorMessage, Toast.LENGTH_SHORT).show()
