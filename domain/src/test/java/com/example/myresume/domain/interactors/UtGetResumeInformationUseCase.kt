@@ -15,7 +15,7 @@ import org.mockito.Mock
 import org.mockito.MockitoAnnotations
 import org.mockito.Mockito.`when` as whenever
 
-class GetResumeInformationUseCaseTest {
+class UtGetResumeInformationUseCase {
 
     @Mock
     private lateinit var resumeRepository: ResumeRepository

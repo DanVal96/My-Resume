@@ -28,7 +28,7 @@ import javax.inject.Inject
 
 
 @RunWith(AndroidJUnit4::class)
-class MainActivityTests {
+class UtMainActivity {
 
     @Rule
     @JvmField

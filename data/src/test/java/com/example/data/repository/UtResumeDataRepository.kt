@@ -20,7 +20,7 @@ import org.mockito.MockitoAnnotations
 import java.net.SocketTimeoutException
 import org.mockito.Mockito.`when` as whenever
 
-class ResumeDataRepositoryTest {
+class UtResumeDataRepository {
 
     @Mock
     private lateinit var resumeApiServices: ResumeApiServices

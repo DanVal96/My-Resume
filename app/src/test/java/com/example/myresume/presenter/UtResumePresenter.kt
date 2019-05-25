@@ -13,7 +13,7 @@ import org.mockito.Mockito.*
 import org.mockito.MockitoAnnotations
 import org.mockito.Mockito.`when` as whenever
 
-class ResumePresenterTest {
+class UtResumePresenter {
 
     @Mock
     private lateinit var mainActivityView: MainActivityContract.View
