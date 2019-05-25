@@ -37,6 +37,7 @@ class MainActivity : AppCompatActivity(), CommonView, MainActivityContract.View 
     private var profileName: TextView? = null
     private var profileImage: ImageView? = null
     private var profileDescription: TextView? = null
+    private var skillsTitle: TextView? = null
     private var placeholderContainer: View? = null
     private var adapterResumeAbilities: AdapterResumeAbilities? = null
     private var adapterPastJobs: AdapterPastJobs? = null
@@ -81,6 +82,7 @@ class MainActivity : AppCompatActivity(), CommonView, MainActivityContract.View 
         profileImage = this.findViewById(R.id.iv_profile_image)
         profileDescription = this.findViewById(R.id.tv_profile_description)
         infoContainer = this.findViewById(R.id.info_container)
+        skillsTitle = this.findViewById(R.id.tv_profile_main_skill)
     }
 
     override fun renderBasicInformation(basicInformation: BasicsData) {
@@ -94,6 +96,7 @@ class MainActivity : AppCompatActivity(), CommonView, MainActivityContract.View 
 
     override fun renderSkillsInformation(abilitiesInformation: List<AbilitiesData>) {
         val receivedSkill = abilitiesInformation[0]
+        skillsTitle?.text = receivedSkill.name
         if (adapterResumeAbilities == null) {
             adapterResumeAbilities = AdapterResumeAbilities(receivedSkill.keywords?.toMutableList())
             skillsRecyclerView?.apply {
