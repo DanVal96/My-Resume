@@ -11,7 +11,7 @@ android {
 
     compileSdkVersion globalConfiguration.getAt("androidCompileSdkVersion")
     defaultConfig {
-        applicationId "com.angelvargas.myresume"
+        applicationId "com.example.myresume"
         minSdkVersion globalConfiguration.getAt("androidMinSdkVersion")
         targetSdkVersion globalConfiguration.getAt("androidTargetSdkVersion")
         versionCode 1

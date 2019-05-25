@@ -71,8 +71,7 @@
                         android:textColor="@android:color/white"
                         android:textSize="@dimen/resume_section_title_size"
                         android:layout_marginEnd="@dimen/margin_medium"
-                        android:textStyle="bold"
-                        tools:text="Manuel López"/>
+                        android:textStyle="bold"/>
                 <View
                         android:layout_width="match_parent"
                         android:layout_height="2dp"
