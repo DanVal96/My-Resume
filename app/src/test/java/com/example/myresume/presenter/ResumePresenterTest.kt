@@ -171,37 +171,34 @@ class ResumePresenterTest {
             PastJobData(WORK_COMPANY,
                 WORK_POSITION,
                 WORK_URL_IMAGE,
-                WORK_START_DATE,
-                WORK_END_DATE,
+                WORK_PERIOD_START,
+                WORK_PERIOD_END,
                 WORK_SUMMARY)
         )
     }
 
     private fun createBasicsData(): BasicsData {
         return BasicsData(BASICS_NAME,
-            BASICS_LABEL,
-            BASICS_PICTURE,
+            BASICS_TITLE,
+            BASICS_URL_IMAGE,
             BASICS_EMAIL,
-            BASICS_SUMMARY)
+            BASICS_PROFILE)
     }
 
     companion object {
-        const val PROFILE_NETWORK = "profileNetwork"
-        const val PROFILE_USER_NAME = "profileUserName"
-        const val PROFILE_URL = "profileUrl"
         const val WORK_COMPANY = "workCompany"
         const val WORK_POSITION = "workPosition"
         const val WORK_URL_IMAGE = "workUrlImage"
-        const val WORK_START_DATE = "workStartDate"
-        const val WORK_END_DATE = "workEndDate"
+        const val WORK_PERIOD_START = "workPeriodStart"
+        const val WORK_PERIOD_END = "workPeriodEnd"
         const val WORK_SUMMARY = "workSummary"
         const val SKILL_NAME = "skillName"
         const val SKILL_LEVEL = "skillLevel"
         val SKILL_KEYWORDS = listOf("android", "kotlin")
         const val BASICS_NAME = "name"
-        const val BASICS_LABEL = "title"
-        const val BASICS_PICTURE = "urlImage"
+        const val BASICS_TITLE = "title"
+        const val BASICS_URL_IMAGE = "urlImage"
         const val BASICS_EMAIL = "email"
-        const val BASICS_SUMMARY = "profile"
+        const val BASICS_PROFILE = "profile"
     }
 }

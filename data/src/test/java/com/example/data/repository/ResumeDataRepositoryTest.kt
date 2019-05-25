@@ -72,8 +72,8 @@ class ResumeDataRepositoryTest {
         assertEquals(receivedBasics?.summary, basicsResponse.profile)
         assertEquals(receivedWork?.company, JOB_NAME)
         assertEquals(receivedWork?.position, JOB_POSITION)
-        assertEquals(receivedWork?.startDate, JOB_START_DATE)
-        assertEquals(receivedWork?.endDate, JOB_END_DATE)
+        assertEquals(receivedWork?.startDate, JOB_PERIOD_START)
+        assertEquals(receivedWork?.endDate, JOB_PERIOD_END)
         assertEquals(receivedWork?.urlImage, JOB_LOGO)
         assertEquals(receivedWork?.summary, JOB_SUMMARY)
         assertEquals(receivedSkill?.name, ABILITY)
@@ -107,8 +107,8 @@ class ResumeDataRepositoryTest {
         assertEquals(receivedBasics?.summary, basicsResponse.summary)
         assertEquals(receivedWork?.company, JOB_NAME)
         assertEquals(receivedWork?.position, JOB_POSITION)
-        assertEquals(receivedWork?.startDate, JOB_START_DATE)
-        assertEquals(receivedWork?.endDate, JOB_END_DATE)
+        assertEquals(receivedWork?.startDate, JOB_PERIOD_START)
+        assertEquals(receivedWork?.endDate, JOB_PERIOD_END)
         assertEquals(receivedWork?.urlImage, JOB_LOGO)
         assertEquals(receivedWork?.summary, JOB_SUMMARY)
         assertEquals(receivedSkill?.name, ABILITY)
@@ -132,8 +132,8 @@ class ResumeDataRepositoryTest {
         return listOf(WorkExperience(JOB_NAME,
             JOB_POSITION,
             JOB_LOGO,
-            JOB_START_DATE,
-            JOB_END_DATE,
+            JOB_PERIOD_START,
+            JOB_PERIOD_END,
             JOB_SUMMARY))
     }
 
@@ -149,33 +149,33 @@ class ResumeDataRepositoryTest {
         return listOf(PastJobData(JOB_NAME,
             JOB_POSITION,
             JOB_LOGO,
-            JOB_START_DATE,
-            JOB_END_DATE,
+            JOB_PERIOD_START,
+            JOB_PERIOD_END,
             JOB_SUMMARY))
     }
 
     private fun createBasicsDataFromCache(): BasicsData {
         return BasicsData(BASICS_NAME,
-            BASICS_LABEL,
-            BASICS_PICTURE,
+            BASICS_TITLE,
+            BASICS_URL_IMAGE,
             BASICS_EMAIL,
-            BASICS_SUMMARY)
+            BASICS_PROFILE)
     }
 
     companion object {
         const val JOB_NAME = "jobName"
         const val JOB_POSITION = "jobPosition"
         const val JOB_LOGO = "jobLogo"
-        const val JOB_START_DATE = "jobStartDate"
-        const val JOB_END_DATE = "jobEndDate"
+        const val JOB_PERIOD_START = "jobPeriodStart"
+        const val JOB_PERIOD_END = "jobPeriodEnd"
         const val JOB_SUMMARY = "jobSummary"
-        const val ABILITY = "ability"
-        const val ABILITY_LEVEL = "abilityLevel"
+        const val ABILITY = "skill"
+        const val ABILITY_LEVEL = "skillLevel"
         val ABILITIES_KEYWORDS = listOf("android", "kotlin")
         const val BASICS_NAME = "name"
-        const val BASICS_LABEL = "title"
-        const val BASICS_PICTURE = "urlImage"
+        const val BASICS_TITLE = "title"
+        const val BASICS_URL_IMAGE = "urlImage"
         const val BASICS_EMAIL = "email"
-        const val BASICS_SUMMARY = "profile"
+        const val BASICS_PROFILE = "profile"
     }
 }
