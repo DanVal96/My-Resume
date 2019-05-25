@@ -8,10 +8,11 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import com.example.myresume.R
+import com.example.myresume.domain.models.SkillsData
 import com.example.myresume.services.ImageDownloader
 
-class AdapterResumeSkills(private var skillsList: MutableList<String>?,
-                          private val imageDownloader: ImageDownloader)
+class AdapterResumeSkills(private var skillsList: MutableList<SkillsData>?,
+                             private val imageDownloader: ImageDownloader)
     : RecyclerView.Adapter<AdapterResumeSkills.SkillViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SkillViewHolder {
@@ -23,10 +24,10 @@ class AdapterResumeSkills(private var skillsList: MutableList<String>?,
     }
 
     override fun onBindViewHolder(holder: SkillViewHolder, position: Int) {
-        holder.setSKillInfo(skillsList?.get(position) ?: "", imageDownloader)
+        holder.setSKillInfo(skillsList?.get(position) ?: SkillsData("", "0", emptyList()), imageDownloader)
     }
 
-    fun refreshData(skillsList: MutableList<String>?) {
+    fun refreshData(skillsList: MutableList<SkillsData>?) {
         skillsList?.let {
             if (this.skillsList == null) {
                 this.skillsList = it
@@ -45,13 +46,13 @@ class AdapterResumeSkills(private var skillsList: MutableList<String>?,
         private var skillsRecyclerView: RecyclerView? = view.findViewById(R.id.skills_list)
         private var adapterResumeAbilitiesKeywords: AdapterResumeAbilitiesKeywords? = null
 
-        fun setSKillInfo(skillName: String, imageDownloader: ImageDownloader) {
-            tvSkillTitle.text = skillName
+        fun setSKillInfo(skillData: SkillsData, imageDownloader: ImageDownloader) {
+            tvSkillTitle.text = skillData.name
             imageDownloader.loadImage(tvSkillIcon, "http://chittagongit.com/images/20x20-icon/20x20-icon-27.jpg")
-            renderSkillsInformation()
+            renderSkillsInformation(skillData.keywords?.toMutableList())
         }
 
-        fun renderSkillsInformation(abilitiesInformation: List<String>) {
+        private fun renderSkillsInformation(abilitiesInformation: MutableList<String>?) {
             if (adapterResumeAbilitiesKeywords == null) {
                 adapterResumeAbilitiesKeywords = AdapterResumeAbilitiesKeywords(abilitiesInformation)
                 skillsRecyclerView?.apply {

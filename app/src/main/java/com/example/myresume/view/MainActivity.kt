@@ -94,15 +94,14 @@ class MainActivity : AppCompatActivity(), CommonView, MainActivityContract.View 
 
 
 override fun renderSkillsInformation(skillsInformation: List<SkillsData>) {
-        val receivedSkill = skillsInformation[0]
         if (adapterResumeSkills == null) {
-            adapterResumeSkill = AdapterResumeSkills(receivedSkill.keywords?.toMutableList(), imageDownloader)
+            adapterResumeSkills = AdapterResumeSkills(skillsInformation.toMutableList(), imageDownloader)
             skillsRecyclerView?.apply {
                 layoutManager = LinearLayoutManager(this@MainActivity)
                 adapter = adapterResumeSkills
             }
         } else {
-            adapterResumeSkills?.refreshData(receivedSkill.keywords?.toMutableList())
+            adapterResumeSkills?.refreshData(skillsInformation.toMutableList())
         }
     }
 
