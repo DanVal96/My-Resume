@@ -2,7 +2,7 @@ package com.example.data.models
 
 import com.google.gson.annotations.SerializedName
 
-data class Abilities (
+data class Skills (
 	@SerializedName("name")
 	val name : String?,
 	@SerializedName("level")

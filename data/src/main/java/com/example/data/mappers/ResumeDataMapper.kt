@@ -1,9 +1,9 @@
 package com.example.data.mappers
 
 import com.example.myresume.domain.models.*
-import com.example.data.models.Basics
-import com.example.data.models.Abilities
-import com.example.data.models.PastJob
+import com.example.data.models.PersonalInfo
+import com.example.data.models.Skills
+import com.example.data.models.WorkExperience
 import com.example.data.remote.ResumeResponse
 
 class ResumeDataMapper: Map<ResumeResponse, ResumeData>() {
@@ -13,36 +13,36 @@ class ResumeDataMapper: Map<ResumeResponse, ResumeData>() {
         val pastJobsMapper = PastJobsMapper()
         val abilitiesMapper = AbilitiesMapper()
         return ResumeData(
-                value.basics?.let { basicsMapper.transform(it) },
-                value.pastJob?.let { pastJobsMapper.transformCollection(it) },
-                value.abilities?.let { abilitiesMapper.transformCollection(it) })
+                value.personalInfo?.let { basicsMapper.transform(it) },
+                value.workExperience?.let { pastJobsMapper.transformCollection(it) },
+                value.skills?.let { abilitiesMapper.transformCollection(it) })
     }
 
-    class BasicsDataMapper: Map<Basics, BasicsData>() {
-        override fun transform(value: Basics): BasicsData {
+    class BasicsDataMapper: Map<PersonalInfo, BasicsData>() {
+        override fun transform(value: PersonalInfo): BasicsData {
             return BasicsData(value.name,
-                    value.label,
-                    value.picture,
+                    value.title,
+                    value.urlImage,
                     value.email,
-                    value.summary)
+                    value.profile)
         }
     }
 
-    class PastJobsMapper: Map<PastJob, PastJobData>() {
+    class PastJobsMapper: Map<WorkExperience, PastJobData>() {
 
-        override fun transform(value: PastJob): PastJobData {
+        override fun transform(value: WorkExperience): PastJobData {
             return PastJobData(value.company,
                     value.position,
                     value.urlImage,
-                    value.startDate,
-                    value.endDate,
+                    value.periodStart,
+                    value.periodEnd,
                     value.summary)
         }
     }
 
-    class AbilitiesMapper: Map<Abilities, AbilitiesData>() {
+    class AbilitiesMapper: Map<Skills, AbilitiesData>() {
 
-        override fun transform(value: Abilities): AbilitiesData {
+        override fun transform(value: Skills): AbilitiesData {
             return AbilitiesData(value.name, value.level, value.keywords)
         }
     }
