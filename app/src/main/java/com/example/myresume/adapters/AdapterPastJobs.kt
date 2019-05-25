@@ -12,7 +12,6 @@ import com.example.myresume.domain.resolver.StringsResolver
 import com.example.myresume.services.ImageDownloader
 
 class AdapterPastJobs(private var worksList: ArrayList<PastJobData>?,
-                      private val imageDownloader: ImageDownloader,
                       private val resourceManager: StringsResolver)
     : RecyclerView.Adapter<AdapterPastJobs.PreviousWorkViewHolder>() {
 
@@ -22,7 +21,7 @@ class AdapterPastJobs(private var worksList: ArrayList<PastJobData>?,
     }
 
     override fun onBindViewHolder(holder: PreviousWorkViewHolder, position: Int) {
-        worksList?.let { holder.setWorkInformation(it[position], imageDownloader, resourceManager) }
+        worksList?.let { holder.setWorkInformation(it[position], resourceManager) }
     }
 
     fun loadData(newWorksList: ArrayList<PastJobData>?) {
@@ -42,22 +41,18 @@ class AdapterPastJobs(private var worksList: ArrayList<PastJobData>?,
     }
 
     class PreviousWorkViewHolder(view: View): RecyclerView.ViewHolder(view) {
-
-        private val companyLogo = view.findViewById<ImageView>(R.id.iv_company_logo)
         private val tvJobPosition = view.findViewById<TextView>(R.id.tv_job_position)
         private val tvName = view.findViewById<TextView>(R.id.tv_name)
         private val tvPeriod = view.findViewById<TextView>(R.id.tv_work_period)
         private val tvPositionSummary = view.findViewById<TextView>(R.id.tv_position_summary)
 
         fun setWorkInformation(pastJobInformation: PastJobData,
-                               imageDownloader: ImageDownloader,
                                resourceManager: StringsResolver) {
             pastJobInformation.run {
                 tvJobPosition.text = position
                 tvName.text = company
                 tvPeriod.text = resourceManager.getWorkPeriodFormat(startDate, endDate)
                 tvPositionSummary.text = summary
-                imageDownloader.loadImage(companyLogo, urlImage)
             }
         }
     }

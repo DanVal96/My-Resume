@@ -5,6 +5,7 @@
     <dimen name="margin_xxsmall">3dp</dimen>
     <dimen name="margin_medium">8dp</dimen>
     <dimen name="margin_big">12dp</dimen>
+    <dimen name="margin_xl">20dp</dimen>
 
     <dimen name="card_view_corner_radius">5dp</dimen>
     <dimen name="card_view_elevation">5dp</dimen>

@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity(), CommonView, MainActivityContract.View 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.new_format_cv)
         (application as ResumeApplication).getAppComponent().inject(this)
         resumePresenter.initView()
     }
@@ -103,7 +103,7 @@ class MainActivity : AppCompatActivity(), CommonView, MainActivityContract.View 
         if (adapterResumeAbilities == null) {
             adapterResumeAbilities = AdapterResumeAbilities(receivedSkill.keywords?.toMutableList())
             skillsRecyclerView?.apply {
-                layoutManager = GridLayoutManager(this@MainActivity, 2, GridLayoutManager.HORIZONTAL, false)
+                layoutManager = LinearLayoutManager(this@MainActivity)
                 adapter = adapterResumeAbilities
             }
         } else {
@@ -113,7 +113,7 @@ class MainActivity : AppCompatActivity(), CommonView, MainActivityContract.View 
 
     override fun renderWorksInformation(pastJobInformation: List<PastJobData>) {
         if (adapterPastJobs == null) {
-            adapterPastJobs = AdapterPastJobs(ArrayList(pastJobInformation), imageDownloader, stringsResolver)
+            adapterPastJobs = AdapterPastJobs(ArrayList(pastJobInformation), stringsResolver)
             previousWorksRecyclerView?.apply {
                 layoutManager = LinearLayoutManager(this@MainActivity)
                 addItemDecoration(DividerItemDecoration(this@MainActivity, DividerItemDecoration.VERTICAL))

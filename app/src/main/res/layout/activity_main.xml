@@ -33,7 +33,7 @@
         <android.support.constraint.ConstraintLayout
                 android:id="@+id/info_container"
                 android:layout_width="match_parent"
-                android:visibility="invisible"
+                android:visibility="visible"
                 android:layout_height="match_parent">
 
             <android.support.v7.widget.CardView
@@ -57,14 +57,14 @@
                             android:id="@+id/iv_profile_image"
                             android:layout_width="@dimen/profile_image_size"
                             android:layout_height="@dimen/profile_image_size"
-                            android:layout_marginStart="@dimen/margin_medium"
-                            android:layout_marginTop="@dimen/margin_big"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="20dp"
                             android:layout_marginEnd="@dimen/margin_medium"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
 
-                            android:src="@mipmap/ic_launcher"/>
+                            android:src="@mipmap/ic_launcher" app:layout_constraintHorizontal_bias="0.09"/>
 
                     <TextView
                             android:id="@+id/tv_profile_name"

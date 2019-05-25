@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import com.example.myresume.R
 
@@ -37,6 +38,7 @@ class AdapterResumeAbilities(private var skillsList: MutableList<String>?)
     class SkillViewHolder(view: View): RecyclerView.ViewHolder(view) {
 
         private val tvSkillName: TextView = view.findViewById(R.id.tv_skill)
+        private val iv_skill_icon: ImageView = view.findViewById(R.id.iv_skill_icon)
 
         fun setSKillName(skillName: String) {
             tvSkillName.text = skillName
