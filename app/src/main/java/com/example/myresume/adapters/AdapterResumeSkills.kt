@@ -50,7 +50,7 @@ class AdapterResumeSkills(private var skillsList: MutableList<SkillsData>?,
 
         fun setSKillInfo(skillData: SkillsData, imageDownloader: ImageDownloader) {
             tvSkillTitle.text = skillData.name
-            imageDownloader.loadImage(tvSkillIcon, "http://chittagongit.com/images/20x20-icon/20x20-icon-27.jpg")
+            imageDownloader.loadImage(tvSkillIcon, skillData.urlImage)
             renderSkillsInformation(skillData.keywords?.toMutableList())
         }
 
