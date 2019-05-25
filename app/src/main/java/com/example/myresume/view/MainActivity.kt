@@ -18,6 +18,7 @@ import com.example.myresume.R
 import com.example.myresume.ResumeApplication
 import com.example.myresume.adapters.AdapterPastJobs
 import com.example.myresume.adapters.AdapterResumeSkills
+import com.example.myresume.adapters.AdapterResumeAbilitiesKeywords
 import com.example.myresume.domain.interactors.GetResumeInteractor
 import com.example.myresume.domain.models.SkillsData
 import com.example.myresume.domain.models.BasicsData
@@ -37,7 +38,6 @@ class MainActivity : AppCompatActivity(), CommonView, MainActivityContract.View 
     private var profileName: TextView? = null
     private var profileImage: ImageView? = null
     private var profileDescription: TextView? = null
-    private var skillsTitle: TextView? = null
     private var placeholderContainer: View? = null
     private var adapterResumeSkills: AdapterResumeSkills? = null
     private var adapterPastJobs: AdapterPastJobs? = null
@@ -82,7 +82,6 @@ class MainActivity : AppCompatActivity(), CommonView, MainActivityContract.View 
         profileImage = this.findViewById(R.id.iv_profile_image)
         profileDescription = this.findViewById(R.id.tv_profile_description)
         infoContainer = this.findViewById(R.id.info_container)
-        skillsTitle = this.findViewById(R.id.tv_profile_main_skill)
     }
 
     override fun renderBasicInformation(basicInformation: BasicsData) {
@@ -94,11 +93,10 @@ class MainActivity : AppCompatActivity(), CommonView, MainActivityContract.View 
     }
 
 
-    override fun renderSkillsInformation(skillsInformation: List<SkillsData>) {
+override fun renderSkillsInformation(skillsInformation: List<SkillsData>) {
         val receivedSkill = skillsInformation[0]
-        skillsTitle?.text = receivedSkill.name
         if (adapterResumeSkills == null) {
-            adapterResumeSkills = AdapterResumeSkills(receivedSkill.keywords?.toMutableList())
+            adapterResumeSkill = AdapterResumeSkills(receivedSkill.keywords?.toMutableList(), imageDownloader)
             skillsRecyclerView?.apply {
                 layoutManager = LinearLayoutManager(this@MainActivity)
                 adapter = adapterResumeSkills
