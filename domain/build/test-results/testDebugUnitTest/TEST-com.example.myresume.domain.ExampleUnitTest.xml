@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.myresume.domain.ExampleUnitTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-05-25T03:37:53" hostname="MX-IT01497" time="0.0">
-  <properties/>
-  <testcase name="addition_isCorrect" classname="com.example.myresume.domain.ExampleUnitTest" time="0.0"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
