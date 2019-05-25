@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">My Resume</string>
+    <string name="connection_error">There is a problem with the connection. Please check you internet connection or try again later</string>
+    <string name="exception_timeout">The wait time was exceeded. Check your connection and try again.</string>
+    <string name="exception_unknown">Ups! Something unexpected happened</string>
+    <string name="text_date_template_format">%1$s-%2$s</string>
+    <string name="text_linkedin">Linkedin</string>
+    <string name="text_github">GitHub</string>
+    <string name="title_previous_experience">My past Jobs</string>
+    <string name="title_skills_list">My Skills</string>
+    <string name="placeholder_text">The information is not available for the moment</string>
+</resources>
