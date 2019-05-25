@@ -3,9 +3,9 @@ package com.example.data.repository
 import com.example.myresume.domain.models.*
 import com.example.myresume.domain.repository.ResumeRepository
 import com.example.data.local.CacheDataSource
-import com.example.data.models.Basics
-import com.example.data.models.Abilities
-import com.example.data.models.PastJob
+import com.example.data.models.PersonalInfo
+import com.example.data.models.Skills
+import com.example.data.models.WorkExperience
 import com.example.data.remote.ResumeResponse
 import com.example.data.services.ResumeApiServices
 import com.example.myresume.domain.errors.ResumeErrors
@@ -47,11 +47,11 @@ class ResumeDataRepositoryTest {
 
     @Test
     fun testGetInformationSuccessful() {
-        val basicsResponse = Basics("name",
-            "label",
+        val basicsResponse = PersonalInfo("name",
+            "title",
             "urlImage",
             "email",
-            "summary")
+            "profile")
         val worksResponse = getJobsList()
         val skillsResponse = getAbilities()
         val response = ResumeResponse(basicsResponse,
@@ -66,10 +66,10 @@ class ResumeDataRepositoryTest {
         val receivedWork = receivedResponse.pastJob?.get(0)
         val receivedSkill = receivedResponse.skills?.get(0)
         assertEquals(receivedBasics?.name, basicsResponse.name)
-        assertEquals(receivedBasics?.label, basicsResponse.label)
-        assertEquals(receivedBasics?.picture, basicsResponse.picture)
+        assertEquals(receivedBasics?.label, basicsResponse.title)
+        assertEquals(receivedBasics?.picture, basicsResponse.urlImage)
         assertEquals(receivedBasics?.email, basicsResponse.email)
-        assertEquals(receivedBasics?.summary, basicsResponse.summary)
+        assertEquals(receivedBasics?.summary, basicsResponse.profile)
         assertEquals(receivedWork?.company, JOB_NAME)
         assertEquals(receivedWork?.position, JOB_POSITION)
         assertEquals(receivedWork?.startDate, JOB_START_DATE)
@@ -128,8 +128,8 @@ class ResumeDataRepositoryTest {
         verify(realmDatasource).getCacheResumeInformation()
     }
 
-    private fun getJobsList(): List<PastJob> {
-        return listOf(PastJob(JOB_NAME,
+    private fun getJobsList(): List<WorkExperience> {
+        return listOf(WorkExperience(JOB_NAME,
             JOB_POSITION,
             JOB_LOGO,
             JOB_START_DATE,
@@ -137,8 +137,8 @@ class ResumeDataRepositoryTest {
             JOB_SUMMARY))
     }
 
-    private fun getAbilities(): List<Abilities> {
-        return listOf(Abilities(ABILITY, ABILITY_LEVEL, ABILITIES_KEYWORDS))
+    private fun getAbilities(): List<Skills> {
+        return listOf(Skills(ABILITY, ABILITY_LEVEL, ABILITIES_KEYWORDS))
     }
 
     private fun getAbilitiesListFromCache(): List<AbilitiesData> {
@@ -173,9 +173,9 @@ class ResumeDataRepositoryTest {
         const val ABILITY_LEVEL = "abilityLevel"
         val ABILITIES_KEYWORDS = listOf("android", "kotlin")
         const val BASICS_NAME = "name"
-        const val BASICS_LABEL = "label"
-        const val BASICS_PICTURE = "picture"
+        const val BASICS_LABEL = "title"
+        const val BASICS_PICTURE = "urlImage"
         const val BASICS_EMAIL = "email"
-        const val BASICS_SUMMARY = "summary"
+        const val BASICS_SUMMARY = "profile"
     }
 }

@@ -199,9 +199,9 @@ class ResumePresenterTest {
         const val SKILL_LEVEL = "skillLevel"
         val SKILL_KEYWORDS = listOf("android", "kotlin")
         const val BASICS_NAME = "name"
-        const val BASICS_LABEL = "label"
-        const val BASICS_PICTURE = "picture"
+        const val BASICS_LABEL = "title"
+        const val BASICS_PICTURE = "urlImage"
         const val BASICS_EMAIL = "email"
-        const val BASICS_SUMMARY = "summary"
+        const val BASICS_SUMMARY = "profile"
     }
 }

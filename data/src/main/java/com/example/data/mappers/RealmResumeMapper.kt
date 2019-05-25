@@ -1,6 +1,6 @@
 package com.example.data.mappers
 
-import com.example.data.models.Basics
+import com.example.data.models.PersonalInfo
 import com.example.data.models.cache.RealmResume
 import com.example.data.models.cache.RealmAbilities
 import com.example.data.models.cache.RealmPastJob
@@ -11,13 +11,13 @@ class RealmResumeMapper: Map<ResumeResponse, RealmResume>() {
 
     override fun transform(value: ResumeResponse): RealmResume {
         val realmPastJobs: RealmList<RealmPastJob> = RealmList(*RealmWorkMapper()
-            .transformCollection(value.pastJob ?: emptyList())
+            .transformCollection(value.workExperience ?: emptyList())
             .toTypedArray())
         val realmSkills: RealmList<RealmAbilities> = RealmList(*RealmSkillsMapper()
-            .transformCollection(value.abilities ?: emptyList())
+            .transformCollection(value.skills ?: emptyList())
             .toTypedArray())
-        return RealmResume(RealmBasicsMapper().transform(value.basics
-            ?: Basics("", "", "", "", "")),
+        return RealmResume(RealmBasicsMapper().transform(value.personalInfo
+            ?: PersonalInfo("", "", "", "", "")),
             realmPastJobs,
             realmSkills)
     }

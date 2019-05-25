@@ -1,15 +1,15 @@
 package com.example.data.remote
 
-import com.example.data.models.Basics
-import com.example.data.models.Abilities
-import com.example.data.models.PastJob
+import com.example.data.models.PersonalInfo
+import com.example.data.models.Skills
+import com.example.data.models.WorkExperience
 import com.google.gson.annotations.SerializedName
 
 data class ResumeResponse(
-    @SerializedName("basics")
-    val basics: Basics?,
-    @SerializedName("pastJob")
-    val pastJob: List<PastJob>?,
-    @SerializedName("abilities")
-    val abilities: List<Abilities>?
+    @SerializedName("personalInfo")
+    val personalInfo: PersonalInfo?,
+    @SerializedName("workExperience")
+    val workExperience: List<WorkExperience>?,
+    @SerializedName("skills")
+    val skills: List<Skills>?
 )
