@@ -20,12 +20,13 @@ buildscript {
 
 allprojects {
     ext {
-        testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.example.myresume.MockTestRunner"
     }
     repositories {
         google()
         jcenter()
         maven { url "https://jitpack.io" }
+        maven { url "https://maven.google.com/" }
     }
 }
 

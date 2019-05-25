@@ -10,21 +10,25 @@ import com.example.data.services.ResumeApiServices.Companion.BASE_URL
 import com.facebook.stetho.Stetho
 import io.realm.Realm
 
-class ResumeApplication: Application() {
+open class ResumeApplication: Application() {
 
     private lateinit var appComponent: AppComponent
 
     override fun onCreate() {
         super.onCreate()
         Realm.init(this)
-        appComponent = DaggerAppComponent.builder()
+        appComponent = createComponent()
+    }
+
+    protected open fun createComponent(): AppComponent {
+        return DaggerAppComponent.builder()
             .appModule(AppModule(this))
             .dataModule(DataModule())
             .apiModule(ApiModule(BASE_URL))
             .build()
     }
 
-    internal fun getAppComponent(): AppComponent {
+    fun getAppComponent(): AppComponent {
         return appComponent
     }
 }
