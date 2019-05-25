@@ -4,7 +4,7 @@ import com.example.myresume.domain.errors.ResumeErrors
 import com.example.myresume.domain.resolver.StringsResolver
 import com.example.myresume.domain.models.*
 import com.example.myresume.domain.interactors.GetResumeInteractor
-import com.example.myresume.view.CommonView
+import com.example.myresume.view.GenericMethodsView
 import io.reactivex.Single
 import org.junit.Before
 import org.junit.Test
@@ -16,28 +16,28 @@ import org.mockito.Mockito.`when` as whenever
 class UtResumePresenter {
 
     @Mock
-    private lateinit var mainActivityView: MainActivityContract.View
+    private lateinit var resumeActivityView: ResumeActivityContract.View
 
     @Mock
-    private lateinit var commonView: CommonView
+    private lateinit var genericMethodsView: GenericMethodsView
     @Mock
     private lateinit var stringsResolver: StringsResolver
     @Mock
     private lateinit var resumeUseCase: GetResumeInteractor
 
-    private lateinit var mainActivityPresenter: MainActivityContract.Presenter
+    private lateinit var resumeActivityPresenter: ResumeActivityContract.Presenter
 
     @Before
     fun setUp() {
         MockitoAnnotations.initMocks(this)
-        mainActivityPresenter = ResumePresenter(commonView, stringsResolver, resumeUseCase, mainActivityView)
+        resumeActivityPresenter = ResumePresenter(genericMethodsView, stringsResolver, resumeUseCase, resumeActivityView)
         whenever(stringsResolver.getUnknownExceptionString()).thenReturn("")
     }
 
     @Test
     fun testInitView() {
-        mainActivityPresenter.initView()
-        verify(mainActivityView).initView()
+        resumeActivityPresenter.initView()
+        verify(resumeActivityView).initView()
     }
 
     @Test
@@ -50,14 +50,14 @@ class UtResumePresenter {
         whenever(resumeUseCase.execute()).thenReturn(Single.just(resumeData))
         whenever(stringsResolver.getUnknownExceptionString()).thenReturn(genericErrorMessage)
 
-        mainActivityPresenter.downloadResume()
+        resumeActivityPresenter.downloadResume()
 
-        verify(commonView).showProgressBar()
-        verify(commonView).hideProgressBar()
-        verify(commonView, times(0)).showError(genericErrorMessage)
-        verify(mainActivityView).renderBasicInformation(receivedBasicsData)
-        verify(mainActivityView).renderSkillsInformation(receivedSkillsData)
-        verify(mainActivityView).renderWorksInformation(receivedWorkData)
+        verify(genericMethodsView).showProgressBar()
+        verify(genericMethodsView).hideProgressBar()
+        verify(genericMethodsView, times(0)).showError(genericErrorMessage)
+        verify(resumeActivityView).renderBasicInformation(receivedBasicsData)
+        verify(resumeActivityView).renderSkillsInformation(receivedSkillsData)
+        verify(resumeActivityView).renderWorksInformation(receivedWorkData)
     }
 
     @Test
@@ -65,14 +65,14 @@ class UtResumePresenter {
         val resumeData = ResumeData()
         whenever(resumeUseCase.execute()).thenReturn(Single.just(resumeData))
 
-        mainActivityPresenter.downloadResume()
+        resumeActivityPresenter.downloadResume()
 
-        verify(commonView).showProgressBar()
-        verify(commonView).hideProgressBar()
-        verify(commonView, atLeastOnce()).showError("")
-        verify(mainActivityView, times(0)).renderBasicInformation(BasicsData())
-        verify(mainActivityView, times(0)).renderSkillsInformation(emptyList())
-        verify(mainActivityView, times(0)).renderWorksInformation(emptyList())
+        verify(genericMethodsView).showProgressBar()
+        verify(genericMethodsView).hideProgressBar()
+        verify(genericMethodsView, atLeastOnce()).showError("")
+        verify(resumeActivityView, times(0)).renderBasicInformation(BasicsData())
+        verify(resumeActivityView, times(0)).renderSkillsInformation(emptyList())
+        verify(resumeActivityView, times(0)).renderWorksInformation(emptyList())
     }
 
     @Test
@@ -81,14 +81,14 @@ class UtResumePresenter {
         val resumeData = ResumeData(null, null, receivedSkillsData)
         whenever(resumeUseCase.execute()).thenReturn(Single.just(resumeData))
 
-        mainActivityPresenter.downloadResume()
+        resumeActivityPresenter.downloadResume()
 
-        verify(commonView, atLeastOnce()).showError("")
-        verify(commonView).showProgressBar()
-        verify(commonView).hideProgressBar()
-        verify(mainActivityView, times(0)).renderBasicInformation(BasicsData())
-        verify(mainActivityView).renderSkillsInformation(receivedSkillsData)
-        verify(mainActivityView, times(0)).renderWorksInformation(emptyList())
+        verify(genericMethodsView, atLeastOnce()).showError("")
+        verify(genericMethodsView).showProgressBar()
+        verify(genericMethodsView).hideProgressBar()
+        verify(resumeActivityView, times(0)).renderBasicInformation(BasicsData())
+        verify(resumeActivityView).renderSkillsInformation(receivedSkillsData)
+        verify(resumeActivityView, times(0)).renderWorksInformation(emptyList())
     }
 
     @Test
@@ -97,14 +97,14 @@ class UtResumePresenter {
         val resumeData = ResumeData(receivedBasicsData, null, null)
         whenever(resumeUseCase.execute()).thenReturn(Single.just(resumeData))
 
-        mainActivityPresenter.downloadResume()
+        resumeActivityPresenter.downloadResume()
 
-        verify(commonView, atLeastOnce()).showError("")
-        verify(commonView).showProgressBar()
-        verify(commonView).hideProgressBar()
-        verify(mainActivityView).renderBasicInformation(receivedBasicsData)
-        verify(mainActivityView, times(0)).renderSkillsInformation(emptyList())
-        verify(mainActivityView, times(0)).renderWorksInformation(emptyList())
+        verify(genericMethodsView, atLeastOnce()).showError("")
+        verify(genericMethodsView).showProgressBar()
+        verify(genericMethodsView).hideProgressBar()
+        verify(resumeActivityView).renderBasicInformation(receivedBasicsData)
+        verify(resumeActivityView, times(0)).renderSkillsInformation(emptyList())
+        verify(resumeActivityView, times(0)).renderWorksInformation(emptyList())
     }
 
     @Test
@@ -113,14 +113,14 @@ class UtResumePresenter {
         val resumeData = ResumeData(null, receivedWorks, null)
         whenever(resumeUseCase.execute()).thenReturn(Single.just(resumeData))
 
-        mainActivityPresenter.downloadResume()
+        resumeActivityPresenter.downloadResume()
 
-        verify(commonView, atLeastOnce()).showError("")
-        verify(commonView).showProgressBar()
-        verify(commonView).hideProgressBar()
-        verify(mainActivityView, times(0)).renderBasicInformation(BasicsData())
-        verify(mainActivityView, times(0)).renderSkillsInformation(emptyList())
-        verify(mainActivityView).renderWorksInformation(receivedWorks)
+        verify(genericMethodsView, atLeastOnce()).showError("")
+        verify(genericMethodsView).showProgressBar()
+        verify(genericMethodsView).hideProgressBar()
+        verify(resumeActivityView, times(0)).renderBasicInformation(BasicsData())
+        verify(resumeActivityView, times(0)).renderSkillsInformation(emptyList())
+        verify(resumeActivityView).renderWorksInformation(receivedWorks)
     }
 
     @Test
@@ -129,11 +129,11 @@ class UtResumePresenter {
         whenever(resumeUseCase.execute()).thenReturn(Single.error(ResumeErrors.TimeoutException()))
         whenever(stringsResolver.getTimeOutExceededString()).thenReturn(timeoutErrorMessage)
 
-        mainActivityPresenter.downloadResume()
+        resumeActivityPresenter.downloadResume()
 
-        verify(commonView).showProgressBar()
-        verify(commonView).hideProgressBar()
-        verify(commonView).showError(timeoutErrorMessage)
+        verify(genericMethodsView).showProgressBar()
+        verify(genericMethodsView).hideProgressBar()
+        verify(genericMethodsView).showError(timeoutErrorMessage)
     }
 
     @Test
@@ -142,11 +142,11 @@ class UtResumePresenter {
         whenever(resumeUseCase.execute()).thenReturn(Single.error(ResumeErrors.GenericError()))
         whenever(stringsResolver.getUnknownExceptionString()).thenReturn(genericErrorMessage)
 
-        mainActivityPresenter.downloadResume()
+        resumeActivityPresenter.downloadResume()
 
-        verify(commonView).showProgressBar()
-        verify(commonView).hideProgressBar()
-        verify(commonView).showError(genericErrorMessage)
+        verify(genericMethodsView).showProgressBar()
+        verify(genericMethodsView).hideProgressBar()
+        verify(genericMethodsView).showError(genericErrorMessage)
     }
 
     @Test
@@ -155,11 +155,11 @@ class UtResumePresenter {
         whenever(resumeUseCase.execute()).thenReturn(Single.error(IllegalStateException()))
         whenever(stringsResolver.getUnknownExceptionString()).thenReturn(genericErrorMessage)
 
-        mainActivityPresenter.downloadResume()
+        resumeActivityPresenter.downloadResume()
 
-        verify(commonView).showProgressBar()
-        verify(commonView).hideProgressBar()
-        verify(commonView).showError(genericErrorMessage)
+        verify(genericMethodsView).showProgressBar()
+        verify(genericMethodsView).hideProgressBar()
+        verify(genericMethodsView).showError(genericErrorMessage)
     }
 
     private fun createSkillDataList(): List<SkillsData> {

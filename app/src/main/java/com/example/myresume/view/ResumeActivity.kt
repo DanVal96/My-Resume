@@ -23,12 +23,12 @@ import com.example.myresume.domain.models.BasicsData
 import com.example.myresume.domain.models.PastJobData
 import com.example.myresume.domain.models.SkillsData
 import com.example.myresume.domain.resolver.StringsResolver
-import com.example.myresume.presenter.MainActivityContract
+import com.example.myresume.presenter.ResumeActivityContract
 import com.example.myresume.presenter.ResumePresenter
 import com.example.myresume.services.PicassImageDownloader
 import javax.inject.Inject
 
-class MainActivity : AppCompatActivity(), CommonView, MainActivityContract.View {
+class ResumeActivity : AppCompatActivity(), GenericMethodsView, ResumeActivityContract.View {
 
     private var skillsRecyclerView: RecyclerView? = null
     private var previousWorksRecyclerView: RecyclerView? = null
@@ -57,7 +57,7 @@ class MainActivity : AppCompatActivity(), CommonView, MainActivityContract.View 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_resume)
         (application as ResumeApplication).getAppComponent().inject(this)
         resumePresenter.initView()
     }
@@ -94,7 +94,7 @@ override fun renderSkillsInformation(skillsInformation: List<SkillsData>) {
         if (adapterResumeSkills == null) {
             adapterResumeSkills = AdapterResumeSkills(skillsInformation.toMutableList(), imageDownloader)
             skillsRecyclerView?.apply {
-                layoutManager = LinearLayoutManager(this@MainActivity)
+                layoutManager = LinearLayoutManager(this@ResumeActivity)
                 adapter = adapterResumeSkills
             }
         } else {
@@ -106,8 +106,8 @@ override fun renderSkillsInformation(skillsInformation: List<SkillsData>) {
         if (adapterPastJobs == null) {
             adapterPastJobs = AdapterPastJobs(ArrayList(pastJobInformation), stringsResolver)
             previousWorksRecyclerView?.apply {
-                layoutManager = LinearLayoutManager(this@MainActivity)
-                addItemDecoration(DividerItemDecoration(this@MainActivity, DividerItemDecoration.VERTICAL))
+                layoutManager = LinearLayoutManager(this@ResumeActivity)
+                addItemDecoration(DividerItemDecoration(this@ResumeActivity, DividerItemDecoration.VERTICAL))
                 adapter = adapterPastJobs
             }
         } else {
