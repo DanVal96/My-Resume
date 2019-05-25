@@ -11,11 +11,11 @@ class ResumeDataMapper: Map<ResumeResponse, ResumeData>() {
     override fun transform(value: ResumeResponse): ResumeData {
         val basicsMapper = BasicsDataMapper()
         val pastJobsMapper = PastJobsMapper()
-        val abilitiesMapper = AbilitiesMapper()
+        val skillsMapper = SkillsMapper()
         return ResumeData(
                 value.personalInfo?.let { basicsMapper.transform(it) },
                 value.workExperience?.let { pastJobsMapper.transformCollection(it) },
-                value.skills?.let { abilitiesMapper.transformCollection(it) })
+                value.skills?.let { skillsMapper.transformCollection(it) })
     }
 
     class BasicsDataMapper: Map<PersonalInfo, BasicsData>() {
@@ -40,10 +40,10 @@ class ResumeDataMapper: Map<ResumeResponse, ResumeData>() {
         }
     }
 
-    class AbilitiesMapper: Map<Skills, AbilitiesData>() {
+    class SkillsMapper: Map<Skills, SkillsData>() {
 
-        override fun transform(value: Skills): AbilitiesData {
-            return AbilitiesData(value.name, value.level, value.keywords)
+        override fun transform(value: Skills): SkillsData {
+            return SkillsData(value.name, value.level, value.keywords, value.urlImage)
         }
     }
 }

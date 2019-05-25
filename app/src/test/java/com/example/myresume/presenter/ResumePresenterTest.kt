@@ -162,8 +162,8 @@ class ResumePresenterTest {
         verify(commonView).showError(genericErrorMessage)
     }
 
-    private fun createSkillDataList(): List<AbilitiesData> {
-        return listOf(AbilitiesData(SKILL_NAME, SKILL_LEVEL, SKILL_KEYWORDS))
+    private fun createSkillDataList(): List<SkillsData> {
+        return listOf(SkillsData(SKILL_NAME, SKILL_LEVEL, SKILL_KEYWORDS, SKILL_URL_IMAGE))
     }
 
     private fun createWorkDataList(): List<PastJobData> {
@@ -195,6 +195,7 @@ class ResumePresenterTest {
         const val SKILL_NAME = "skillName"
         const val SKILL_LEVEL = "skillLevel"
         val SKILL_KEYWORDS = listOf("android", "kotlin")
+        const val SKILL_URL_IMAGE = "skillUrlImage"
         const val BASICS_NAME = "name"
         const val BASICS_TITLE = "title"
         const val BASICS_URL_IMAGE = "urlImage"

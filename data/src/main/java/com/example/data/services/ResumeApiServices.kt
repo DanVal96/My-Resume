@@ -6,10 +6,10 @@ import retrofit2.http.GET
 
 interface ResumeApiServices {
 
-    @GET("5ce96fb33300009627525d69")
+    @GET("5ce9a0e93300002737525dc2")
     fun getResumeInformation(): Single<ResumeResponse>
 
     companion object {
-        const val BASE_URL =  "http://www.mocky.io/v2/" //Check the new base
+        const val BASE_URL =  "http://www.mocky.io/v2/"
     }
 }

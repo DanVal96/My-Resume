@@ -99,8 +99,8 @@ class GetResumeInformationUseCaseTest {
             WORK_SUMMARY))
     }
 
-    private fun createSkillsList(): List<AbilitiesData> {
-        return listOf(AbilitiesData(SKILL_NAME, SKILL_LEVEL, SKILL_KEYWORDS))
+    private fun createSkillsList(): List<SkillsData> {
+        return listOf(SkillsData(SKILL_NAME, SKILL_LEVEL, SKILL_KEYWORDS, SKILL_URL_IMAGE))
     }
 
     companion object {
@@ -113,5 +113,6 @@ class GetResumeInformationUseCaseTest {
         const val SKILL_NAME = "skillName"
         const val SKILL_LEVEL = "skillLevel"
         val SKILL_KEYWORDS = listOf("android", "kotlin")
+        const val SKILL_URL_IMAGE = "skillUrlImage"
     }
 }

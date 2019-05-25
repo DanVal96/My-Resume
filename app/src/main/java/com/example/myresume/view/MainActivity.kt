@@ -17,9 +17,9 @@ import com.airbnb.lottie.LottieAnimationView
 import com.example.myresume.R
 import com.example.myresume.ResumeApplication
 import com.example.myresume.adapters.AdapterPastJobs
-import com.example.myresume.adapters.AdapterResumeAbilities
+import com.example.myresume.adapters.AdapterResumeSkills
 import com.example.myresume.domain.interactors.GetResumeInteractor
-import com.example.myresume.domain.models.AbilitiesData
+import com.example.myresume.domain.models.SkillsData
 import com.example.myresume.domain.models.BasicsData
 import com.example.myresume.domain.models.PastJobData
 import com.example.myresume.domain.resolver.StringsResolver
@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity(), CommonView, MainActivityContract.View 
     private var profileDescription: TextView? = null
     private var skillsTitle: TextView? = null
     private var placeholderContainer: View? = null
-    private var adapterResumeAbilities: AdapterResumeAbilities? = null
+    private var adapterResumeSkills: AdapterResumeSkills? = null
     private var adapterPastJobs: AdapterPastJobs? = null
     private val imageDownloader = PicassImageDownloader()
 
@@ -94,17 +94,17 @@ class MainActivity : AppCompatActivity(), CommonView, MainActivityContract.View 
     }
 
 
-    override fun renderSkillsInformation(abilitiesInformation: List<AbilitiesData>) {
-        val receivedSkill = abilitiesInformation[0]
+    override fun renderSkillsInformation(skillsInformation: List<SkillsData>) {
+        val receivedSkill = skillsInformation[0]
         skillsTitle?.text = receivedSkill.name
-        if (adapterResumeAbilities == null) {
-            adapterResumeAbilities = AdapterResumeAbilities(receivedSkill.keywords?.toMutableList())
+        if (adapterResumeSkills == null) {
+            adapterResumeSkills = AdapterResumeSkills(receivedSkill.keywords?.toMutableList())
             skillsRecyclerView?.apply {
                 layoutManager = LinearLayoutManager(this@MainActivity)
-                adapter = adapterResumeAbilities
+                adapter = adapterResumeSkills
             }
         } else {
-            adapterResumeAbilities?.refreshData(receivedSkill.keywords?.toMutableList())
+            adapterResumeSkills?.refreshData(receivedSkill.keywords?.toMutableList())
         }
     }
 

@@ -53,7 +53,7 @@ class ResumeDataRepositoryTest {
             "email",
             "profile")
         val worksResponse = getJobsList()
-        val skillsResponse = getAbilities()
+        val skillsResponse = getSkills()
         val response = ResumeResponse(basicsResponse,
             worksResponse,
             skillsResponse)
@@ -76,9 +76,9 @@ class ResumeDataRepositoryTest {
         assertEquals(receivedWork?.endDate, JOB_PERIOD_END)
         assertEquals(receivedWork?.urlImage, JOB_LOGO)
         assertEquals(receivedWork?.summary, JOB_SUMMARY)
-        assertEquals(receivedSkill?.name, ABILITY)
-        assertEquals(receivedSkill?.level, ABILITY_LEVEL)
-        assertEquals(receivedSkill?.keywords?.size, ABILITIES_KEYWORDS.size)
+        assertEquals(receivedSkill?.name, SKILL)
+        assertEquals(receivedSkill?.level, SKILL_LEVEL)
+        assertEquals(receivedSkill?.keywords?.size, SKILL_KEYWORDS.size)
 
         verify(realmDatasource).storeReceivedData(response)
     }
@@ -87,10 +87,10 @@ class ResumeDataRepositoryTest {
     fun testGetResumeFromFallbackCache() {
         val basicsResponse = createBasicsDataFromCache()
         val jobsResponse = pastJobListFromCache()
-        val abilitiesData = getAbilitiesListFromCache()
+        val skillsData = getSkillsListFromCache()
         val response = ResumeData(basicsResponse,
             jobsResponse,
-            abilitiesData)
+            skillsData)
 
         whenever(resumeApiServices.getResumeInformation()).thenReturn(Single.error(SocketTimeoutException()))
         whenever(realmDatasource.getCacheResumeInformation()).thenReturn(Single.just(response))
@@ -111,9 +111,9 @@ class ResumeDataRepositoryTest {
         assertEquals(receivedWork?.endDate, JOB_PERIOD_END)
         assertEquals(receivedWork?.urlImage, JOB_LOGO)
         assertEquals(receivedWork?.summary, JOB_SUMMARY)
-        assertEquals(receivedSkill?.name, ABILITY)
-        assertEquals(receivedSkill?.level, ABILITY_LEVEL)
-        assertEquals(receivedSkill?.keywords?.size, ABILITIES_KEYWORDS.size)
+        assertEquals(receivedSkill?.name, SKILL)
+        assertEquals(receivedSkill?.level, SKILL_LEVEL)
+        assertEquals(receivedSkill?.keywords?.size, SKILL_KEYWORDS.size)
     }
 
     @Test
@@ -137,12 +137,12 @@ class ResumeDataRepositoryTest {
             JOB_SUMMARY))
     }
 
-    private fun getAbilities(): List<Skills> {
-        return listOf(Skills(ABILITY, ABILITY_LEVEL, ABILITIES_KEYWORDS))
+    private fun getSkills(): List<Skills> {
+        return listOf(Skills(SKILL, SKILL_LEVEL, SKILL_KEYWORDS, SKILL_URL_IMAGE))
     }
 
-    private fun getAbilitiesListFromCache(): List<AbilitiesData> {
-        return listOf(AbilitiesData(ABILITY, ABILITY_LEVEL, ABILITIES_KEYWORDS))
+    private fun getSkillsListFromCache(): List<SkillsData> {
+        return listOf(SkillsData(SKILL, SKILL_LEVEL, SKILL_KEYWORDS, SKILL_URL_IMAGE))
     }
 
     private fun pastJobListFromCache(): List<PastJobData> {
@@ -169,9 +169,10 @@ class ResumeDataRepositoryTest {
         const val JOB_PERIOD_START = "jobPeriodStart"
         const val JOB_PERIOD_END = "jobPeriodEnd"
         const val JOB_SUMMARY = "jobSummary"
-        const val ABILITY = "skill"
-        const val ABILITY_LEVEL = "skillLevel"
-        val ABILITIES_KEYWORDS = listOf("android", "kotlin")
+        const val SKILL = "skill"
+        const val SKILL_LEVEL = "skillLevel"
+        val SKILL_KEYWORDS = listOf("android", "kotlin")
+        const val SKILL_URL_IMAGE = "skillUrlImage"
         const val BASICS_NAME = "name"
         const val BASICS_TITLE = "title"
         const val BASICS_URL_IMAGE = "urlImage"

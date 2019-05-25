@@ -8,8 +8,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.example.myresume.R
 
-class AdapterResumeAbilities(private var skillsList: MutableList<String>?)
-    : RecyclerView.Adapter<AdapterResumeAbilities.SkillViewHolder>() {
+class AdapterResumeSkills(private var skillsList: MutableList<String>?)
+    : RecyclerView.Adapter<AdapterResumeSkills.SkillViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SkillViewHolder {
         return SkillViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_ability, parent, false))

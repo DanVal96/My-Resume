@@ -10,9 +10,9 @@ open class RealmResume(): RealmObject() {
     var id: String = UUID.randomUUID().toString()
     var basics: RealmBasics? = null
     var pastJob: RealmList<RealmPastJob> = RealmList()
-    var skills: RealmList<RealmAbilities> = RealmList()
+    var skills: RealmList<RealmSkills> = RealmList()
 
-    constructor(basics: RealmBasics, pastJobs: RealmList<RealmPastJob>, skills: RealmList<RealmAbilities>): this() {
+    constructor(basics: RealmBasics, pastJobs: RealmList<RealmPastJob>, skills: RealmList<RealmSkills>): this() {
         this.basics = basics
         this.pastJob = pastJobs
         this.skills = skills

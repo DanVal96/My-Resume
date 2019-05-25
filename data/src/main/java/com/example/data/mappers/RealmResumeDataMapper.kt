@@ -10,7 +10,7 @@ class RealmResumeDataMapper: Map<RealmResume, ResumeData> () {
         return ResumeData(
             value.basics?.let { RealmBasicsDataMapper().transform(it) },
             RealmPastJobDataMapper().transformCollection(value.pastJob.toList()),
-            RealAbilitiesDataMapper().transformCollection(value.skills.toList()))
+            RealSkillsDataMapper().transformCollection(value.skills.toList()))
     }
 
     class RealmBasicsDataMapper: Map<RealmBasics, BasicsData>() {
@@ -36,12 +36,13 @@ class RealmResumeDataMapper: Map<RealmResume, ResumeData> () {
         }
     }
 
-    class RealAbilitiesDataMapper: Map<RealmAbilities, AbilitiesData>() {
+    class RealSkillsDataMapper: Map<RealmSkills, SkillsData>() {
 
-        override fun transform(value: RealmAbilities): AbilitiesData {
-            return AbilitiesData(value.name,
+        override fun transform(value: RealmSkills): SkillsData {
+            return SkillsData(value.name,
                 value.level,
-                value.keywords.toList())
+                value.keywords.toList(),
+                value.urlImage)
         }
     }
 }
