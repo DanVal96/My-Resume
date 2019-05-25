@@ -4,12 +4,10 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import com.example.myresume.R
 import com.example.myresume.domain.models.PastJobData
 import com.example.myresume.domain.resolver.StringsResolver
-import com.example.myresume.services.ImageDownloader
 
 class AdapterPastJobs(private var worksList: ArrayList<PastJobData>?,
                       private val resourceManager: StringsResolver)

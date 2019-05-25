@@ -24,7 +24,9 @@ class AdapterResumeSkills(private var skillsList: MutableList<SkillsData>?,
     }
 
     override fun onBindViewHolder(holder: SkillViewHolder, position: Int) {
-        holder.setSKillInfo(skillsList?.get(position) ?: SkillsData("", "0", emptyList()), imageDownloader)
+        holder.setSKillInfo(skillsList?.get(position) ?:
+        SkillsData("", "0", emptyList(), "http://chittagongit.com/images/20x20-icon/20x20-icon-27.jpg")
+            , imageDownloader)
     }
 
     fun refreshData(skillsList: MutableList<SkillsData>?) {

@@ -18,11 +18,10 @@ import com.example.myresume.R
 import com.example.myresume.ResumeApplication
 import com.example.myresume.adapters.AdapterPastJobs
 import com.example.myresume.adapters.AdapterResumeSkills
-import com.example.myresume.adapters.AdapterResumeAbilitiesKeywords
 import com.example.myresume.domain.interactors.GetResumeInteractor
-import com.example.myresume.domain.models.SkillsData
 import com.example.myresume.domain.models.BasicsData
 import com.example.myresume.domain.models.PastJobData
+import com.example.myresume.domain.models.SkillsData
 import com.example.myresume.domain.resolver.StringsResolver
 import com.example.myresume.presenter.MainActivityContract
 import com.example.myresume.presenter.ResumePresenter
