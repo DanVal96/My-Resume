@@ -8,5 +8,5 @@ import javax.inject.Singleton
 @Singleton
 @Component(modules = [MockAppModule::class, MockThreadModule::class])
 interface MockAppComponent: AppComponent {
-    fun inject(utMainActivity: UtMainActivity)
+    fun inject(mainActivity: UtResumeActivity)
 }

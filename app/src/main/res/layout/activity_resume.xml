@@ -38,7 +38,7 @@
     <android.support.v4.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".view.MainActivity">
+            tools:context=".view.ResumeActivity">
 
 
         <android.support.v7.widget.LinearLayoutCompat
